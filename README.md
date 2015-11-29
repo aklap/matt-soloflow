@@ -21,7 +21,10 @@ A Stack Overflow clone for your edification, education, and entertainment.
 - As a user, I want to see trending questions so I can view the most popular questions posted.
 
 ## Features
-*
+* CRUD App (Create, Read, Update, Delete)
+* Nested Comments and answers
+* Searchable tags
+* Bcrypt login and user authentication
 
 ## Technologies
 * Duct tape, black magic, our own blood/sweat/tears, the Necronomicron, overripe bananas.
