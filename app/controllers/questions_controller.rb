@@ -12,18 +12,18 @@ class QuestionsController < ApplicationController
     @user = current_user
     @question = @user.questions.new(question_params)
     @tags = tag_params[:tags].split(",")
-      if @question.save
-        @tags.each do |tag|
-          new_tag = Tag.find_or_create_by(category: tag.strip)
-          unless @question.tags.include?(new_tag)
-            @question.tags << new_tag
-          end
+    if @question.save
+      @tags.each do |tag|
+        new_tag = Tag.find_or_create_by(category: tag.strip)
+        unless @question.tags.include?(new_tag)
+          @question.tags << new_tag
         end
-        redirect_to question_path(@question)
-      else
-        @errors = @question.errors.full_messages
-        render :new
       end
+      redirect_to question_path(@question)
+    else
+      @errors = @question.errors.full_messages
+      render :new
+    end
   end
 
   def show
