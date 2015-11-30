@@ -5,18 +5,20 @@ def create
   @vote = Vote.new(vote_params)
   @vote.user_id = @user.id
   if @vote.save
-    if @vote.votable_type == "Answer"
+    case @vote.votable_type
+    when "Answer"
       redirect_to question_path(@vote.votable.question_id)
-    elsif @vote.votable_type == "Question"
+    when "Question"
       redirect_to question_path(@vote.votable.id)
-    elsif @vote.votable_type == "Comment"
+    when "Comment"
       if @vote.votable.commentable_type == "Answer"
         redirect_to question_path(@vote.votable.commentable.question_id)
       elsif @vote.votable.commentable_type == "Question"
         redirect_to question_path(@vote.votable.commentable.id)
       end
+    # else
+    #   TODO: Add error handling
     end
-  end
 end
 
 private

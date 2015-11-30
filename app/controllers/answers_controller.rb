@@ -9,6 +9,7 @@ class AnswersController < ApplicationController
     @user = User.find(session[:user_id])
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(content: answer_params[:content], user_id: @user.id)
+
     if @answer.save
       redirect_to question_path(@question)
     else
@@ -29,6 +30,7 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
     @question = Question.find(params[:question_id])
+
     if @answer
       @answer.update_attributes(answer_params)
       redirect_to question_path(@question.id)
@@ -39,6 +41,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer = Answer.find(params[:id])
+
     @answer.destroy
     redirect_to question_path(@answer.question)
   end
@@ -46,6 +49,7 @@ class AnswersController < ApplicationController
   def best
     @answer = Answer.find(params[:answer])
     @answer.mark_as_best
+
     if @answer.save
       redirect_to question_path(@answer.question_id)
     else
