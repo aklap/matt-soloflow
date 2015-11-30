@@ -210,21 +210,14 @@ form.button_to {
   margin-bottom: .2em;
   text-decoration: none;
   color: black;
-  /*border: 3px solid black;*/
-  padding: 1em;
-  /*border-radius: 5px;*/
+  padding: .3em;
 }
 
 .tag:hover { color: yellow; }
 
-
 .tags-container {
-  /*display: inline-block;*/
   float: left;
-  /*text-align: left;*/
-  padding: .8em;
-  /*margin-left: 10%;*/
-  /*margin-right: 10%;*/
+  padding: .3em;
   margin-bottom: .5em;
 }
 
@@ -273,12 +266,10 @@ p.answer {
   text-align: left;
   font-size: .7em;
   color: gray;
-  /*border: 1px solid black;*/
-  /*display: block;*/
+  margin: 0;
 }
 
 .question-summary {
-  /*border-bottom: 1px solid gray;*/
   width: auto;
   height: -1em;
   border-bottom: 1px solid black;
@@ -291,8 +282,6 @@ p.answer {
 }
 
 .index-text {
-  /*text-align: right;*/
-  /*border: 1px solid black;*/
   display: inline-block;
 }
 
